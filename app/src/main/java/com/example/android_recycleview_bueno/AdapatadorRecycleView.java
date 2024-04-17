@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_recycleview_bueno.model.Usuario;
+import com.example.android_recycleview_bueno.model.UsuarioRepository;
 
 import java.util.List;
 
@@ -19,9 +20,9 @@ public class AdapatadorRecycleView extends RecyclerView.Adapter<AdapatadorRecycl
     private LayoutInflater layoutInflater;
     private List<Usuario> usuarios;
 
-    public AdapatadorRecycleView(Context context, List<Usuario> usuarios){
+    public AdapatadorRecycleView(Context context){
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.usuarios = usuarios;
+        this.usuarios = UsuarioRepository.getInstance().getAll();
     }
 
     @NonNull
